@@ -7,6 +7,8 @@ package pruebadriver;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +20,13 @@ public class Pruebadriver {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        try {
+            Class.forName("org.mariadb.jdbc.Driver");
+                    
+                    } catch (ClassNotFoundException ex) {
+                        System.out.println("error");
+            Logger.getLogger(Pruebadriver.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
